@@ -34,7 +34,10 @@ function toggleSelect(el){
 
 function displayBoxWidget(el){
     var lbl = $(el).attr("label");
+	var clsLbl = $(el).attr("clsLabel");
+	
     $("#boxtxtbox").val( lbl || "");
+	$("#boxtxtlbl").val( clsLbl || "");
     $("#div_l").text(el.position().left);
     $("#div_t").text(el.position().top);
     $("#div_w").text(el.width());
