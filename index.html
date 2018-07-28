@@ -35,7 +35,6 @@
 
 </head>
 <body>
-            <a href="https://github.com/NaturalIntelligence/imglab"><img class="bring-up" style="position: absolute; top: 0; left: 0; border: 0;" src="img/githubribon.png" alt="Fork me on GitHub"></a>
 <h1 style="text-align: center;"> ImgLab</h1>
 <p style="text-align: center;">This is the webbased tool to label images with boxes and landmarks. You can also use Face++ API to prepopulate the points and then adjust them to improve the position by dragging them.</p>
 
@@ -43,12 +42,6 @@
 	<div class="row">
 	    <div class="col-sm-8">
 
-		    <div class="input-group">
-				<input class="form-control" type="text" id="image_url" name="image_url" placeholder="Image URL">
-		      <span class="input-group-btn">
-		        <button class="btn btn-outline-info" type="button" id="imgUrlBtn">Show</button>
-		      </span>
-			</div>
 		</div>
 		<div class="col-sm-2">
 			<label class="btn-bs-file btn btn-outline-info">Browse Image files
@@ -63,6 +56,7 @@
     </div>
 </div>
 
+<!--
 <div class="input-bar clearfix">
 	<div class="left-paddle"></div>
     <div class="photolist-wrapper">
@@ -70,7 +64,7 @@
     </div>
     <div class="right-paddle"></div>
 </div>
-
+-->
 <div class="alert" id="info"></div>
 
 <div class="container-fluid">
@@ -121,15 +115,6 @@
 			</div>
 		</div>
 		<div class="col-sm-2" >
-			<h5>Time Saver </h5>
-			<small>Plot points using following methods and adjust them to improve the accuracy.</small>
-			<hr>
-			<input class="form-control" type="text" name="api_key" id="api_key" placeholder="api_key" />
-			<input class="form-control" type="text" name="api_secret" id="api_secret" placeholder="api_secret" />
-			<br>
-			<input class="btn btn-success" type="button" name="faceppBtn" id="faceppBtn" value="Face++" />
-
-
 			<hr>
 			<small>Select a file to read landmarks and face box position. (xml, json)</small><br>
 			<label id="loadDataFileBtn" class="btn-bs-file btn btn-outline-info">Browse
@@ -176,18 +161,7 @@
 	<script src="js/slider.js"></script>
 	<script src="js/Face++DataParser.js"></script>
 	<script src="js/dlibDataHandler.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			$("[name='plotType']").bootstrapSwitch();
-			setTimeout(function(){
-                $.dialog({
-                    title: '',
-                    content: '<p>If you like my work, plz give me a '
-                    + '<a href="https://github.com/NaturalIntelligence/imglab/stargazers">star</a>'
-                    + ' on GitHub.</p>'
-                });
-            }, 10);
-		})
+	<script src="js/processImages.js"></script>
 
 	</script>
 </body>
