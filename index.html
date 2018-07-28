@@ -124,10 +124,14 @@
 			<input type="file" id="loadDataFileInput" style="display:none" value="Browse data file" accept=".fpp,.xml,.json" onchange="readPointsFile(this)" />
 
 			<hr>
-			<div class="sidebar">
-				<textarea id="actualData" ></textarea>
-				<input type="button" id="plotActualBtn" value="Plot on Image" />
-			</div>
+			<hr>
+			<small>If you want to label a video you have to convert it into an image sequence first!</small><br>
+			<label id="loadDataFileBtn" class="btn-bs-file btn btn-outline-info">Choose video to convert
+				<input type="file" id="convertVideoFile" value="Browse data file" accept="video/*"  onchange="convertVidToImg(this)" />
+			</label>
+			
+
+			<hr>
 		</div>
 	</div>
 </div>
