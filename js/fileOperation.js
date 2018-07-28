@@ -7,9 +7,11 @@ function download(data, filename, type) {
 
 
 /* Load selected images or images fom a folder in slider*/
+var imageNames = [];
+var currentImgPtr = 0;
 function readImageFiles(input) {
     if (input.files && input.files[0]) {
-        emptySlider();
+        //emptySlider();
         hideWidgets();
         emptyCanvas();
         images = {};//remove previous data
@@ -29,8 +31,9 @@ function readImageFile(f){
                 name : f.name,
                 data: e.target.result
             };
-            imagesData[f.name] = imgData
-            addToSlider(imgData);
+            imagesData[f.name] = imgData;
+			imageNames.push(f.name);
+            //addToSlider(imgData);
         }
         reader.readAsDataURL(f);
     }
