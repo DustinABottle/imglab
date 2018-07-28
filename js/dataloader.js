@@ -45,6 +45,12 @@ function updateLabelBoxLabel(oldLabel,newLabel){
     }
 }
 
+function updateLabelBoxClassLabel(label, newClassLabel){
+	var imgName = $('#img').attr("label");
+	images[imgName].boxes[label].cls_label = newClassLabel;
+	
+}
+
 function deleteLabelBoxPoints(box_el){
     var imgName = $('#img').attr("label");
     var boxlbl = $(box_el).attr("label");
