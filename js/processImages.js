@@ -79,7 +79,6 @@ function computeBboxesOpticalFlow(){
 		}
 
 	}
-	console.log(first_image_bboxes);
 	requestParam = {'bbox': {[imageNames[currentImgPtr]] : first_image_bboxes},
 					'images': sofImages};
 					
