@@ -253,6 +253,14 @@ $("#boxtxtbox").on("input",function(ev){
     $(".facebox.selected").attr("label",newLabel);//for next time
     updateLabelBoxLabel(oldLabel,newLabel);
 })
+//Box class label
+$("#boxtxtlbl").on("input", function(ev){
+	var label = $(".facebox.selected").attr("label");
+	var newClassLbl = $("#boxtxtlbl").val();
+	$(".facebox.selected").attr("clsLabel", newClassLbl);
+	updateLabelBoxClassLabel(label, newClassLbl);
+	console.log(images)	
+})
 
 $("#lbltxtbox").on("input",function(ev){
     var oldLabel = $(".ptn.selected").attr("label");
