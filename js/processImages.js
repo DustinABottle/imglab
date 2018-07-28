@@ -61,8 +61,26 @@ function computeBboxesOpticalFlow(){
 		image = imagesData[imgName];
 		sofImages[image.name] = image.data;
 	}
-	
-	requestParam = {'bbox': {[imageNames[currentImgPtr]] :images[imageNames[currentImgPtr]]['boxes']},
+	// if there aren't any bounding boxes for the image, i.e. there are no objects, create an empty dictionary for the boxes
+	try {
+		images[imageNames[currentImgPtr]]['boxes'];
+	}
+	catch(err){
+		images[imageNames[currentImgPtr]] = {'boxes': {}};
+	}
+	first_image_bboxes = images[imageNames[currentImgPtr]]['boxes'];
+	// check if class label for each bounding box is set, otherwise throw error
+	for (box_number in first_image_bboxes){
+		if (!("cls_label" in first_image_bboxes[box_number])){
+			throw "Missing class label for a bounding box!";
+		}
+		if (!(first_image_bboxes[box_number]['cls_label'])){
+			throw "Missing class label for a bounding box!";
+		}
+
+	}
+	console.log(first_image_bboxes);
+	requestParam = {'bbox': {[imageNames[currentImgPtr]] : first_image_bboxes},
 					'images': sofImages};
 					
 	$.ajax({
@@ -83,10 +101,15 @@ $('#nextImgBtn').on('click', function(){
 		alert("Not enough images to calculate optical flow!")
 	}
 	else{
+		try {
 		computeBboxesOpticalFlow();
 		currentImgPtr += 1 + N_IMG_SOF;
 		// computeBboxesConvNet();
 		displayImage();
+		}
+		catch(err){
+			alert(err);
+		}
 	}
 });
 
