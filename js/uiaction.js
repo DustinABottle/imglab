@@ -103,6 +103,21 @@ function drawFaceBox(cordinates){
     })
 }
 
+function findLowestId(){
+	boxes=images[$("#img").attr('label')]
+	if(!boxes){
+		return 1;
+	}
+	var i;
+	var keys = Object.keys(boxes['boxes']);
+	var boundary = keys.length+1;
+	for(i=1; i <= boundary; i++){
+		if(keys.indexOf(i.toString()) >= 0){
+			continue;
+		}
+		return i.toString();
+	}
+}
 
 //Create the label box when user stop playing
 $("#img_overlay").mouseup(function(event) {
@@ -110,7 +125,7 @@ $("#img_overlay").mouseup(function(event) {
         if(tmpBox.width() < 20 || tmpBox.height() < 20){
             tmpBox.remove();
         }else{
-            tmpBox.attr("label", $("#img_overlay .facebox").length);
+            tmpBox.attr("label", findLowestId());
             updateLabelBox(tmpBox);
             select(tmpBox);
         }
