@@ -169,6 +169,7 @@ function appendBox(css){
 /* make a box dragabble*/
 function makeItDraggable(el){
   jsPlumb.draggable(el,{
+	containment: true,
     start: function(e){
         select(el);
     },
