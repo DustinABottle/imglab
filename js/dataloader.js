@@ -118,6 +118,7 @@ function drawAllBoxData(boxes){
                     height: boxes[boxlbl].height + "px"
                 });
                 tmpBox.attr("label", boxlbl);
+				tmpBox.attr("clsLabel", boxes[boxlbl].cls_label);
                 
                 // Add points
                 var points = boxes[boxlbl].points;
