@@ -103,7 +103,7 @@ $('#nextImgBtn').on('click', function(){
 		try {
 		computeBboxesOpticalFlow();
 		currentImgPtr += 1 + N_IMG_SOF;
-		// computeBboxesConvNet();
+		computeBboxesConvNet();
 		displayImage();
 		}
 		catch(err){
@@ -130,7 +130,7 @@ $('#startProcessBtn').on('click', function(){
 	// sort the imageNames because the filereader works asynchronously
 	imageNames.sort();
 	currentImgPtr = 0;
-	// computeBboxesConvNet();
+	computeBboxesConvNet();
 	displayImage();
 	$('#prevImgBtn').attr('disabled', false)
 	$('#nextImgBtn').attr('disabled', false)
