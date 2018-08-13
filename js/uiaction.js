@@ -300,7 +300,7 @@ var emptyCanvas= function(){
 }
 
 $("#exportBtn").click(function(){
-    download(JSON.stringify(images),"labelled.json","text/plain");
+    download(JSON.stringify(images),"labelled.json","application/json");
 })
 
 $("#exportDlibBtn").click(function(){
