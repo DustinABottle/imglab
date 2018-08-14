@@ -11,11 +11,13 @@ function updateLabelBox(box_el){
                 boxes : {}
             }
         }
-        images[imgName].boxes[boxlbl] = { 
+        images[imgName].boxes[boxlbl] = {
+			cls_label: $(box_el).attr("clsLabel"),
             left: $(box_el).position().left,
             top: $(box_el).position().top,
             width: $(box_el).width(),
             height: $(box_el).height()
+			
         }
     }
 }

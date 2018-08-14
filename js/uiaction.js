@@ -259,7 +259,6 @@ $("#boxtxtlbl").on("input", function(ev){
 	var newClassLbl = $("#boxtxtlbl").val();
 	$(".facebox.selected").attr("clsLabel", newClassLbl);
 	updateLabelBoxClassLabel(label, newClassLbl);
-	console.log(images)	
 })
 
 $("#lbltxtbox").on("input",function(ev){
