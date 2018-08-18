@@ -56,7 +56,7 @@ function computeBboxesConvNet(){
 	})
 }
 
-// computes bounding box for many images using Semantic Optical Flow
+// computes bounding box for many images using Optical Flow
 function computeBboxesOpticalFlow(){
 	sofImageNames = imageNames.slice(currentImgPtr, currentImgPtr + N_IMG_SOF + 1);
 	sofImages = {}
@@ -100,15 +100,25 @@ function computeBboxesOpticalFlow(){
 }
 
 $('#nextImgBtn').on('click', function(){
-	if (currentImgPtr + N_IMG_SOF + 1 >= imageNames.length){
+	if (currentImgPtr + N_IMG_SOF >= imageNames.length){
 		alert("Not enough images to calculate optical flow!")
 	}
 	else{
-		computeBboxesOpticalFlow();
-		currentImgPtr += 1 + N_IMG_SOF;
-		computeBboxesConvNet();
-		displayImage();
+		try {
+			computeBboxesOpticalFlow();
+			if (currentImgPtr + 1 + N_IMG_SOF >= imageNames.length){
+				currentImgPtr += N_IMG_SOF;
+			}
+			else{
+				currentImgPtr += N_IMG_SOF + 1;
+				computeBboxesConvNet();
+			}
+			displayImage();		
 		}
+		catch(err){
+			alert(err);
+		}
+	}
 	}
 );
 
