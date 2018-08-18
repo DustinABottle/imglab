@@ -2,8 +2,7 @@
 N_IMG_SOF = 3
 
 function change_N_IMG_SOF(value){
-	N_IMG_SOF = value;
-	console.log(N_IMG_SOF);
+	N_IMG_SOF = parseInt(value);
 }
 
 function convertVidToImg(input){
@@ -105,17 +104,13 @@ $('#nextImgBtn').on('click', function(){
 		alert("Not enough images to calculate optical flow!")
 	}
 	else{
-		try {
 		computeBboxesOpticalFlow();
 		currentImgPtr += 1 + N_IMG_SOF;
 		computeBboxesConvNet();
 		displayImage();
 		}
-		catch(err){
-			alert(err);
-		}
 	}
-});
+);
 
 $('#prevImgBtn').on('click', function(){
 	if (currentImgPtr /*- N_IMG_SOF */ - 1 < 0){
