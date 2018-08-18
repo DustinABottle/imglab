@@ -73,7 +73,7 @@ function computeBboxesOpticalFlow(){
 		images[imageNames[currentImgPtr]] = {'boxes': {}};
 	}
 	first_image_bboxes = images[imageNames[currentImgPtr]]['boxes'];
-	// check if class label for each bounding box is set, otherwise throw error
+	// check if class label for each bounding box is set and valid, otherwise throw error
 	for (box_number in first_image_bboxes){
 		if (!("cls_label" in first_image_bboxes[box_number])){
 			throw "Missing class label for a bounding box!";
@@ -99,7 +99,7 @@ function computeBboxesOpticalFlow(){
 	
 }
 
-$('#nextImgBtn').on('click', function(){
+$('#processNextImgBtn').on('click', function(){
 	if (currentImgPtr + N_IMG_SOF >= imageNames.length){
 		alert("Not enough images to calculate optical flow!")
 	}
@@ -122,7 +122,7 @@ $('#nextImgBtn').on('click', function(){
 	}
 );
 
-$('#prevImgBtn').on('click', function(){
+$('#viewPrevImgBtn').on('click', function(){
 	if (currentImgPtr /*- N_IMG_SOF */ - 1 < 0){
 		alert("You are looking at the first image!");
 	}
@@ -142,8 +142,8 @@ $('#startProcessBtn').on('click', function(){
 	currentImgPtr = 0;
 	computeBboxesConvNet();
 	displayImage();
-	$('#prevImgBtn').attr('disabled', false);
-	$('#nextImgBtn').attr('disabled', false);
+	$('#viewPrevImgBtn').attr('disabled', false);
+	$('#processNextImgBtn').attr('disabled', false);
 	$('#framecount').attr('disabled', true);
 	$('#startProcessBtn').attr('disabled', true);
 	}
