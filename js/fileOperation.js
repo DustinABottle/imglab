@@ -19,6 +19,10 @@ function readImageFiles(input) {
         for(i=0;i<input.files.length;i++){
             readImageFile(input.files[i]);
         }
+        $('#prevImgBtn').attr('disabled', true);
+        $('#nextImgBtn').attr('disabled', true);
+        $('#framecount').attr('disabled', false);
+        $('#startProcessBtn').attr('disabled', false);   
     }
 }
 

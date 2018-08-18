@@ -132,8 +132,10 @@ $('#startProcessBtn').on('click', function(){
 	currentImgPtr = 0;
 	computeBboxesConvNet();
 	displayImage();
-	$('#prevImgBtn').attr('disabled', false)
-	$('#nextImgBtn').attr('disabled', false)
+	$('#prevImgBtn').attr('disabled', false);
+	$('#nextImgBtn').attr('disabled', false);
+	$('#framecount').attr('disabled', true);
+	$('#startProcessBtn').attr('disabled', true);
 	}
 });
 
