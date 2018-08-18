@@ -25,7 +25,7 @@ function readImageFiles(input) {
         $('#framecount').attr('disabled', false);
         $('#startProcessBtn').attr('disabled', false);
         $('#goToCurrentImgBtn').attr('disabled', true);
-	    $('#viewNextImgBtn').attr('disabled', true);
+        $('#viewNextImgBtn').attr('disabled', true);
     }
 }
 

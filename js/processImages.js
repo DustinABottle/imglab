@@ -110,10 +110,12 @@ $('#processNextImgBtn').on('click', function(){
 			if (currentImgPtr + 1 + N_IMG_SOF >= imageNames.length){
 				currentProcessImgPtr += N_IMG_SOF;
 				currentImgPtr += N_IMG_SOF;
+				$('#currentImageDisplay').html(currentImgPtr + 1);
 			}
 			else{
 				currentImgPtr += N_IMG_SOF + 1;
 				currentProcessImgPtr += N_IMG_SOF + 1;
+				$('#currentImageDisplay').html(currentImgPtr + 1);
 				computeBboxesConvNet();
 			}
 			displayImage();		
@@ -131,6 +133,7 @@ $('#viewPrevImgBtn').on('click', function(){
 	}
 	else {
 		currentImgPtr -= 1 /*+ N_IMG_SOF*/;
+		$('#currentImageDisplay').html(currentImgPtr + 1);
 		displayImage();
 	}
 });
@@ -141,12 +144,14 @@ $('#viewNextImgBtn').on('click', function(){
 	}
 	else {
 		currentImgPtr += 1 /*+ N_IMG_SOF*/;
+		$('#currentImageDisplay').html(currentImgPtr + 1);
 		displayImage();
 	}
 });
 
 $('#goToCurrentImgBtn').on('click', function(){
 	currentImgPtr = currentProcessImgPtr;
+	$('#currentImageDisplay').html(currentImgPtr + 1);
 	displayImage();
 });
 
@@ -169,6 +174,8 @@ $('#startProcessBtn').on('click', function(){
 	$('#viewNextImgBtn').attr('disabled', false);
 	$('#framecount').attr('disabled', true);
 	$('#startProcessBtn').attr('disabled', true);
+	$('#currentImageDisplay').html(currentImgPtr + 1);
+    $('#allImageDisplay').html(imageNames.length + 1);
 	}
 });
 
