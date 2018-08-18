@@ -1,5 +1,10 @@
 // number of imgaes processed by the optical flow
-N_IMG_SOF = 2
+N_IMG_SOF = 3
+
+function change_N_IMG_SOF(value){
+	N_IMG_SOF = value;
+	console.log(N_IMG_SOF);
+}
 
 function convertVidToImg(input){
 	if (input.files && input.files[0]){

@@ -35,8 +35,8 @@
 
 </head>
 <body>
-<h1 style="text-align: center;"> ImgLab</h1>
-<p style="text-align: center;">This is the webbased tool to label images with boxes and landmarks. You can also use Face++ API to prepopulate the points and then adjust them to improve the position by dragging them.</p>
+<h1 style="text-align: center;"> Intelligent Labeling Tool</h1>
+<p style="text-align: center;">This is the webbased tool to label images with bounding boxes. Bounding boxes will be computed automatically for the next few frames.</p>
 
 <div class="container">
 	<div class="row">
@@ -137,7 +137,9 @@
 			<hr>
 			<small>After you finished your work, you can save all bounding boxes into a .json file.</small><br>
 			<input class="btn-bs-file btn btn-outline-info" type="button" id="exportBtn" value="Download" />
-
+			<hr>
+			<small>Change the number of frames which will be processed by the optical flow.</small><br>
+			<input class="form-control" type="text" id="framecount" value="3" onchange="change_N_IMG_SOF(this.value)">
 			<hr>
 		</div>
 	</div>
@@ -146,14 +148,16 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-1 text-center">
-			<br><input class="btn btn-outline-primary" type="button" id="startProcessBtn" value="Start" />
+			<br><input class="btn btn-outline-primary" type="button" disabled id="prevImgBtn" value="View previous Image" />
+		</div>
+		
+		<div class="col-sm-9 text-center">
+				<br><input class="btn btn-outline-primary" type="button" id="startProcessBtn" value="Start" />
 		</div>
 		<div class="col-sm-2 text-center">
-			<br><input class="btn btn-outline-primary" type="button" disabled id="nextImgBtn" value="Next image" />
+			<br><input class="btn btn-outline-primary" type="button" disabled id="nextImgBtn" value="Process next image" />
 		</div>
-		<div class="col-sm-1 text-center">
-			<br><input class="btn btn-outline-primary" type="button" disabled id="prevImgBtn" value="Previous Image" />
-		</div>
+		
 	</div>
 </div>
 
