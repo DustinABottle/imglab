@@ -122,7 +122,7 @@ function findLowestId(){
 //Create the label box when user stop playing
 $("#img_overlay").mouseup(function(event) {
     if(tmpBox != ""){
-        if(tmpBox.width() < 20 || tmpBox.height() < 20){
+        if(tmpBox.width() < 10 || tmpBox.height() < 10){
             tmpBox.remove();
         }else{
             tmpBox.attr("label", findLowestId());
