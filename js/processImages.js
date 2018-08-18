@@ -100,6 +100,7 @@ function computeBboxesOpticalFlow(){
 }
 
 $('#processNextImgBtn').on('click', function(){
+	currentImgPtr = currentProcessImgPtr;
 	if (currentImgPtr + N_IMG_SOF >= imageNames.length){
 		alert("Not enough images to calculate optical flow!")
 	}
@@ -107,10 +108,12 @@ $('#processNextImgBtn').on('click', function(){
 		try {
 			computeBboxesOpticalFlow();
 			if (currentImgPtr + 1 + N_IMG_SOF >= imageNames.length){
+				currentProcessImgPtr += N_IMG_SOF;
 				currentImgPtr += N_IMG_SOF;
 			}
 			else{
 				currentImgPtr += N_IMG_SOF + 1;
+				currentProcessImgPtr += N_IMG_SOF + 1;
 				computeBboxesConvNet();
 			}
 			displayImage();		
@@ -132,6 +135,21 @@ $('#viewPrevImgBtn').on('click', function(){
 	}
 });
 
+$('#viewNextImgBtn').on('click', function(){
+	if (currentImgPtr /*- N_IMG_SOF */ + 1 >= imageNames.length ){
+		alert("You are looking at the last image!");
+	}
+	else {
+		currentImgPtr += 1 /*+ N_IMG_SOF*/;
+		displayImage();
+	}
+});
+
+$('#goToCurrentImgBtn').on('click', function(){
+	currentImgPtr = currentProcessImgPtr;
+	displayImage();
+});
+
 $('#startProcessBtn').on('click', function(){
 	if (imageNames.length == 0){
 		alert("No images loaded!");
@@ -139,7 +157,10 @@ $('#startProcessBtn').on('click', function(){
 	else {
 	// sort the imageNames because the filereader works asynchronously
 	imageNames.sort();
+	// Pointer to view images
 	currentImgPtr = 0;
+	// Pointer to process images
+	currentProcessImgPtr = 0;
 	computeBboxesConvNet();
 	displayImage();
 	$('#viewPrevImgBtn').attr('disabled', false);

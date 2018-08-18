@@ -9,6 +9,7 @@ function download(data, filename, type) {
 /* Load selected images or images fom a folder in slider*/
 var imageNames = [];
 var currentImgPtr = 0;
+var currentProcessImgPtr = 0;
 function readImageFiles(input) {
     if (input.files && input.files[0]) {
         //emptySlider();
