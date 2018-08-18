@@ -144,6 +144,8 @@ $('#startProcessBtn').on('click', function(){
 	displayImage();
 	$('#viewPrevImgBtn').attr('disabled', false);
 	$('#processNextImgBtn').attr('disabled', false);
+	$('#goToCurrentImgBtn').attr('disabled', false);
+	$('#viewNextImgBtn').attr('disabled', false);
 	$('#framecount').attr('disabled', true);
 	$('#startProcessBtn').attr('disabled', true);
 	}
