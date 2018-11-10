@@ -88,7 +88,7 @@ function computeBboxesOpticalFlow(){
 					
 	$.ajax({
 		type: 'POST',
-		url: 'http://127.0.0.1:5000/bboxes_sof',
+		url: 'http://127.0.0.1:5000/bboxes_of',
 		data: JSON.stringify(requestParam),
 		success: storeBboxes,
 		contentType: 'application/json',
