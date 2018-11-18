@@ -100,24 +100,15 @@ function computeBboxesOpticalFlow(){
 }
 
 $('#processNextImgBtn').on('click', function(){
-	currentImgPtr = currentProcessImgPtr;
 	if (currentImgPtr + N_IMG_SOF >= imageNames.length){
 		alert("Not enough images to calculate optical flow!")
 	}
 	else{
 		try {
 			computeBboxesOpticalFlow();
-			if (currentImgPtr + 1 + N_IMG_SOF >= imageNames.length){
-				currentProcessImgPtr += N_IMG_SOF;
-				currentImgPtr += N_IMG_SOF;
-				$('#currentImageDisplay').html(currentImgPtr + 1);
-			}
-			else{
-				currentImgPtr += N_IMG_SOF + 1;
-				currentProcessImgPtr += N_IMG_SOF + 1;
-				$('#currentImageDisplay').html(currentImgPtr + 1);
-				computeBboxesConvNet();
-			}
+			currentImgPtr += N_IMG_SOF;
+			currentProcessImgPtr = currentImgPtr
+			$('#currentImageDisplay').html(currentImgPtr + 1);
 			displayImage();		
 		}
 		catch(err){
@@ -175,7 +166,7 @@ $('#startProcessBtn').on('click', function(){
 	$('#framecount').attr('disabled', true);
 	$('#startProcessBtn').attr('disabled', true);
 	$('#currentImageDisplay').html(currentImgPtr + 1);
-    $('#allImageDisplay').html(imageNames.length + 1);
+    $('#allImageDisplay').html(imageNames.length);
 	}
 });
 
