@@ -163,7 +163,7 @@ $('#startProcessBtn').on('click', function(){
 	$('#processNextImgBtn').attr('disabled', false);
 	$('#goToCurrentImgBtn').attr('disabled', false);
 	$('#viewNextImgBtn').attr('disabled', false);
-	$('#framecount').attr('disabled', true);
+	//$('#framecount').attr('disabled', true);
 	$('#startProcessBtn').attr('disabled', true);
 	$('#currentImageDisplay').html(currentImgPtr + 1);
     $('#allImageDisplay').html(imageNames.length);
