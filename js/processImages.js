@@ -18,7 +18,7 @@ function convertVidToImg(input){
 					type: 'POST',
 					url: 'http://127.0.0.1:5000/convert_video',
 					data: JSON.stringify(videoData),
-					success: alert("Video converted!"),
+					success: alert("Video is converting in the background!"),
 					contentType: 'application/json',
 					dataType: 'json',
 					async: false
